@@ -1,0 +1,92 @@
+.category-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  background-color: var(--surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-color);
+}
+
+.category-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.category-tab {
+  flex: 0 0 auto;
+  padding: 0.625rem 1rem;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: transparent;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.category-tab:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.category-tab.active {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+}
+
+/* 토스 스타일로 활성화 상태 추가 */
+.category-tab:first-child.active {
+  background-color: #3182f6; /* 토스 파란색 */
+}
+
+.category-tab:nth-child(2).active {
+  background-color: #4c6ef5; /* 카페 - 약간 보라빛 파란색 */
+}
+
+.category-tab:nth-child(3).active {
+  background-color: #37b24d; /* 차 - 초록색 */
+}
+
+.category-tab:nth-child(4).active {
+  background-color: #f59f00; /* 디저트 - 노란색 */
+}
+
+.category-tab:nth-child(5).active {
+  background-color: #f76707; /* 스낵 - 주황색 */
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .category-tabs {
+    padding: 0.75rem;
+  }
+
+  .category-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-tabs {
+    padding: 0.5rem;
+    gap: 0.25rem;
+  }
+
+  .category-tab {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+} 

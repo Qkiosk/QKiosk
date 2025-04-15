@@ -1,0 +1,323 @@
+:root {
+  --max-width: 1920px;
+  --header-height: 60px;
+  --cart-width: 400px;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-active: #1e40af;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --background: #ffffff;
+  --surface: #f8f9fa;
+  --border: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  background-color: var(--surface);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+  background: var(--surface);
+}
+
+.app-container {
+  display: flex;
+  gap: 2rem;
+  position: relative;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.menu-section {
+  flex: 1;
+  min-width: 0;
+}
+
+/* App 컴포넌트 내에서만 사용되는 스타일로 명확하게 구분 */
+.app .cart-section {
+  display: none;
+  width: 400px;
+  position: sticky;
+  top: 1rem;
+  height: calc(100vh - 2rem);
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.app .cart-section.active {
+  display: block;
+}
+
+.cart-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cart-section::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 6px;
+}
+
+.cart-section::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+@media (max-width: 1400px) {
+  .app-container {
+    max-width: 1200px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .app-container {
+    max-width: 960px;
+    gap: 1.5rem;
+  }
+
+  .cart-section {
+    width: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .menu-section {
+    padding: 0.75rem;
+  }
+
+  /* App 컴포넌트 내에서만 사용되는 스타일로 명확하게 구분 */
+  .app .cart-section {
+    display: none;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    border-radius: 20px 20px 0 0;
+    z-index: 100;
+  }
+
+  .app .cart-section.active {
+    display: block;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-section {
+    padding: 0.5rem;
+  }
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.card {
+  padding: 2em;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.kiosk-app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.kiosk-header {
+  text-align: center;
+  padding: 20px 0;
+  margin-bottom: 20px;
+  background-color: #3f51b5;
+  color: white;
+  border-radius: 8px;
+}
+
+.kiosk-content {
+  display: flex;
+  gap: 20px;
+}
+
+/* CategoryTab 스타일 */
+.category-tabs {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.category-tab {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.category-tab.active {
+  background-color: #3f51b5;
+  color: white;
+}
+
+/* MenuList 스타일 */
+.menu-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Cart 스타일 */
+.cart h2 {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.cart-items {
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cart-item-controls button {
+  width: 30px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.cart-total {
+  margin: 20px 0;
+  font-size: 18px;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* OrderComplete 스타일 */
+.order-complete {
+  background-color: white;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-number {
+  margin: 30px 0;
+}
+
+.order-number h1 {
+  font-size: 72px;
+  color: #3f51b5;
+}
+
+.message {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+.new-order-button {
+  padding: 12px 24px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 추가 미디어 쿼리 */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+} 

@@ -1,0 +1,254 @@
+.payment-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.payment-content {
+  background: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.payment-step {
+  padding: 24px;
+}
+
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.payment-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #636e72;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  background: #f1f2f6;
+  color: #2d3436;
+}
+
+.payment-methods {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.payment-method {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-method:hover {
+  background: #f1f2f6;
+}
+
+.payment-method.selected {
+  background: #e3f2fd;
+  border: 2px solid #0984e3;
+}
+
+.payment-method input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  accent-color: #0984e3;
+}
+
+.method-name {
+  font-size: 16px;
+  font-weight: 500;
+  color: #2d3436;
+}
+
+.payment-summary {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #f1f2f6;
+}
+
+.total-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.total-amount span {
+  font-size: 16px;
+  color: #2d3436;
+}
+
+.total-amount .amount {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0984e3;
+}
+
+.pay-button {
+  width: 100%;
+  padding: 16px;
+  background: #0984e3;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.pay-button:disabled {
+  background: #b2bec3;
+  cursor: not-allowed;
+}
+
+.pay-button:not(:disabled):hover {
+  background: #0870c0;
+  transform: translateY(-2px);
+}
+
+.processing {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #f1f2f6;
+  border-top: 4px solid #0984e3;
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.processing h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.processing p {
+  margin: 0;
+  color: #636e72;
+}
+
+.complete {
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  background: #0984e3;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin: 0 auto 24px;
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.complete h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.complete p {
+  margin: 0;
+  color: #636e72;
+}
+
+@media (max-width: 768px) {
+  .payment-content {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .payment-step {
+    padding: 20px;
+  }
+
+  .payment-header h3 {
+    font-size: 18px;
+  }
+
+  .payment-method {
+    padding: 14px;
+  }
+
+  .method-name {
+    font-size: 15px;
+  }
+
+  .total-amount .amount {
+    font-size: 20px;
+  }
+
+  .pay-button {
+    padding: 14px;
+    font-size: 15px;
+  }
+} 
